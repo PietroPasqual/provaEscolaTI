@@ -34,16 +34,21 @@ tempo_medio_minutos considera apenas bilhetes encerrados no dia, arredondando 0,
 UC5 — Cancelar bilhete
 
 POST /bilhetes/{id}/cancelamento
-com status: "cancelado". Só bilhetes abertos podem ser cancelados — sem cobrança (não gera saida nem valor_centavos).
+com status: "cancelado". Só bilhetes abertos podem ser cancelados
 
 UC6 — Histórico por placa
 
 GET /bilhetes?placa=ABC1D23
-com array de todos os bilhetes da placa (qualquer status), mais recentes primeiro. Placa que nunca estacionou → array vazio.
+com array de todos os bilhetes da placa (qualquer status), mais recentes primeiro.
+Placa que nunca estacionou = array vazio.
 
 UC7 — Tolerância gratuita
 
-Os primeiros TOLERANCIA_MINUTOS de um bilhete são grátis: duração ≤ tolerância → valor_centavos: 0. Passou da tolerância (mesmo por 1 minuto) → cobra integral desde o primeiro minuto — a tolerância não é descontada.
+Os primeiros TOLERANCIA_MINUTOS de um bilhete são grátis.
+Passou da tolerância (mesmo por 1 minuto) = cobra integral desde o primeiro minuto
+
+
+
 
 UC8 — Uma vaga por placa
 POST /bilhetes 
