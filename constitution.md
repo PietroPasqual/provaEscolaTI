@@ -16,13 +16,20 @@ Em situações não especificadas, priorizar soluções simples, determinística
 
 A implementação utilizará os seguintes parâmetros da variante:
 
-Parâmetro        |       Valor
-TARIFA_HORA_CENTAVOS:     500
+Parâmetro               |  Valor
+TARIFA_HORA_CENTAVOS:   |  500
+FRACAO_MINUTOS:         |  30
+TETO_DIARIO_CENTAVOS:   |  5000
+TOLERANCIA_MINUTOS:     |  15
+PORTA_SERVICO:          |  8003
 
-FRACAO_MINUTOS:           30
+Os parâmetros não poderão ser substituídos por valores ilustrativos ou padrões arbitrários.
 
-TETO_DIARIO_CENTAVOS:     5000
+4. Regras fundamentais
 
-TOLERANCIA_MINUTOS:       15
-
-PORTA_SERVICO:            8003
+Todos os valores monetários devem ser representados em centavos inteiros.
+A cobrança deve respeitar as frações de 30 minutos, a tolerância de 15 minutos e o teto de 5000 centavos.
+Após ultrapassar a tolerância, a cobrança deve considerar o tempo integral.
+Cada placa poderá possuir apenas um bilhete aberto por vez.
+Somente bilhetes abertos poderão ser encerrados ou cancelados.
+A API deverá funcionar na porta 8003.
